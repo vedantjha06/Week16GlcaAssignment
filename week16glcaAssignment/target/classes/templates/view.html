@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Ticket</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+body {
+	padding-top: 50px;
+	font-family: Arial, sans-serif;
+}
+
+.navbar {
+	background-color: #0000ff;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+	color: white;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.ticket-details {
+	border: 2px solid #ccc;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-top: 20px; /* Added margin top for spacing */
+}
+
+.ticket-details th, .ticket-details td {
+	padding: 10px;
+	text-align: center;
+}
+
+.spl {
+	position: relative;
+	top: 195px;
+}
+
+footer {
+	background-color: #000;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-primary fixed-top">
+
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="navbar-brand">Ticket
+						Tracker Application</a></li>
+				<li class="nav-item"><a class="nav-link" href="/">Tickets</a></li>
+				<li class="nav-item active"><a class="nav-link"
+					th:href="addTicket">New Ticket</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<h2 style="text-align: center;" class="spl">Ticket Detail</h2>
+	<div class="container">
+
+		<table class="table table-bordered ticket-details">
+			<tbody>
+
+				<tr>
+					<th>Title of the Ticket</th>
+					<td th:text="${ticket.ticketTitle}"></td>
+				</tr>
+				<tr>
+					<th>Created On</th>
+					<td th:text="${ticket.date}"></td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td th:text="${ticket.shortDescription}"></td>
+				</tr>
+				<tr>
+					<th>Content</th>
+					<td th:text="${ticket.content}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+<footer>
+	<p>&copy; 2023 Great Learning All rights reserved.</p>
+</footer>
+</html>
